@@ -1,1 +1,0 @@
-../../usr/local/solom/backup.sh
