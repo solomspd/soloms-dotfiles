@@ -1,1 +1,1 @@
-/usr/local/solom/backup.sh
+../../usr/local/solom/backup.sh
