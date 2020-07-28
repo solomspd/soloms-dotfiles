@@ -203,7 +203,7 @@ smart_gaps on
 gaps inner 20
 
 exec unclutter
-exec picom --experimental-backend
+exec_always picom --experimental-backend
 exec xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --left-of DP-2 --output DP-2 --primary --mode 2560x1440 --rate 165
 exec guake
 exec nitrogen --restore
