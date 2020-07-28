@@ -1,0 +1,19 @@
+font:
+  normal:
+    family: "Fira Code"
+    style: Retina
+    size: 12
+
+window:
+  padding:
+    x: 5
+    y: 5
+
+  dynamic_padding: true
+
+  decorations: full
+
+scrolling:
+  history: 100000
+
+background_opacity: 0.85
