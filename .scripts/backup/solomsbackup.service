@@ -1,0 +1,8 @@
+[Unit]
+Description=Start rsync backup script
+
+[Service]
+Type=simple
+Requisite=remote-Abdo\\x2dNAS-main.mount
+After=remote-Abdo\\x2dNAS-main.mount
+ExecStart=/usr/local/solom/backup.sh

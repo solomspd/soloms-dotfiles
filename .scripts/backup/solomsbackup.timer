@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer to start backup script
+
+[Timer]
+
+OnCalendar=daily
+Unit=solomsbackup.service
+
+[Install]
+WantedBy=timers.target
+WantedBy=multi-user.target
