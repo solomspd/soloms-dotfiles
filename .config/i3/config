@@ -199,7 +199,7 @@ bar {
 default_border pixel 2
 new_window pixel 2
 
-smart_gaps on
+# smart_gaps on
 gaps inner 20
 
 exec unclutter

@@ -1,8 +1,7 @@
 font:
-  normal:
-    family: "Fira Code"
-    style: Retina
-    size: 12
+    normal:
+        family: "Fira Code Retina"
+        size: 12
 
 window:
   padding:
