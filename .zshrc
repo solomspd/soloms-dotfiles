@@ -105,6 +105,8 @@ alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
 alias ls='exa -l -a --color=always'
 alias s='i3-swallow'
+alias getIP='curl ipconfig.io'
+alias weather='curl wttr.in'
 
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
