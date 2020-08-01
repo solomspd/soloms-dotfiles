@@ -209,3 +209,5 @@ exec xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --left-of DP-2 --output D
 exec guake
 exec nitrogen --restore
 exec dunst
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec udiskie
