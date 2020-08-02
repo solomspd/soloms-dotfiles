@@ -19,5 +19,5 @@ call plug#end()
 set relativenumber
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
-set autoindent noexpandtab tabstop=4 shiftwidth=4
+set noet ci pi sts=0 sw=4 ts=4
 colorscheme nord
