@@ -13,6 +13,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mbbill/undotree'
 Plug 'justinmk/vim-sneak'
 Plug 'unblevable/quick-scope'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 
@@ -20,4 +21,4 @@ set relativenumber
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 set noet ci pi sts=0 sw=4 ts=4
-colorscheme nord
+colorscheme wal

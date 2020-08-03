@@ -34,8 +34,8 @@ exec --no-startup-id nm-applet
 bindsym $mod+ctrl+l exec .scripts/i3lock.sh
 bindsym $mod+ctrl+shift+j exec poweroff
 
-bindsym Print --release exec "escrotum -s -C /tmp/screenshots/%Y-%m-%d-%H%M%S_$wx$h.png"
-bindsym Shift+Print exec "escrotum -C /tmp/screenshots/%Y-%m-%d-%H%M%S_$wx$h.png"
+bindsym Print --release exec flameshot gui
+bindsym Shift+Print exec flameshot screen
 
 
 # Use pactl to adjust volume in PulseAudio.
