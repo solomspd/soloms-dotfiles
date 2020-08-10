@@ -100,7 +100,7 @@ autoload -U compinit && compinit
 export LANG=en_US.UTF-8
 
 alias v='nvim'
-alias ipython='ipython --profile=solom'
+alias math='ipython --profile=solom'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
 alias ls='exa -l -a --color=always'

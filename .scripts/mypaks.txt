@@ -8,7 +8,8 @@ cmatrix
 sl
 nload
 nmap
-escrotum
+maim
+flameshot
 ttf-fira-code
 rofi
 unclutter
@@ -17,3 +18,4 @@ dunst
 udiskie
 zsh
 i3blocks
+pywal
