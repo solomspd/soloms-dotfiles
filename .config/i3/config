@@ -46,9 +46,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl --player=playerctld play-pause
-bindsym XF86AudioNext exec playerctl --player=playerctld next
-bindsym XF86AudioPrev exec playerctl --player=playerctld previous
+bindsym XF86AudioPlay exec playerctl -p spotifyd play-pause
+bindsym XF86AudioNext exec playerctl -p spotifyd next
+bindsym XF86AudioPrev exec playerctl -p spotifyd previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -217,18 +217,19 @@ gaps inner 20
 # autostart services and initial startup configs
 exec nvidia-settings -l
 exec unclutter
-# exec_always picom --experimental-backend
+exec_always picom --experimental-backend
 exec xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --left-of DP-2 --output DP-2 --primary --mode 2560x1440 --rate 165
 exec guake
 exec nitrogen --restore
 exec dunst
 exec /usr/lib/polkit-kde-authentication-agent-1
-exec udiskie
-exec playerctld
+exec udiskie -a
+exec playerctld 
 
 # autostart application
 exec steam
 exec discord
 exec steam
 exec qbittorrent
-exec spotify
+exec spotifyd
+exec thunderbird

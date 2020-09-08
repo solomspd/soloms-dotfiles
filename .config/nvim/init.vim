@@ -18,7 +18,15 @@ Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 set relativenumber
+
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
-set noet ci pi sts=0 sw=4 ts=4
+
 colorscheme wal
+
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
