@@ -24,9 +24,14 @@ let g:airline_powerline_fonts = 1
 
 colorscheme wal
 
+" tabs > spaces
 set autoindent
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
 
+" to copy from vim to X11 clipboard
+set clipboard=unnamedplus
+
+" because vim doesnt like python tab indentation for some reason
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
