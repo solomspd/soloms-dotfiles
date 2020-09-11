@@ -17,7 +17,8 @@ Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 
-set relativenumber
+" fancy hybrid number line
+set number relativenumber
 
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
@@ -31,7 +32,7 @@ set tabstop=4
 set shiftwidth=4
 
 " to copy from vim to X11 clipboard
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " because vim doesnt like python tab indentation for some reason
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
