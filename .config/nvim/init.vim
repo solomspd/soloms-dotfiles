@@ -14,6 +14,7 @@ Plug 'mbbill/undotree'
 Plug 'justinmk/vim-sneak'
 Plug 'unblevable/quick-scope'
 Plug 'dylanaraps/wal.vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -36,3 +37,7 @@ set clipboard+=unnamedplus
 
 " because vim doesnt like python tab indentation for some reason
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
+
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+

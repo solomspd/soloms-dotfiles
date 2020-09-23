@@ -144,6 +144,15 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+ramdisk() {
+	if [ -n "$1"]
+	then
+		sudo mount -t tmpfs -o size="$1"M tmpfs /mnt/ramdisk
+	else
+		sudo mount -t tmpfs -o size=81928M tmpfs /mnt/ramdisk
+	fi
+}
+
 fortune
 
 # Preferred editor for local and remote sessions

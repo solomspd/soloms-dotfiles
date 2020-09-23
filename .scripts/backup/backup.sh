@@ -1,6 +1,6 @@
 #!/bin/sh
-rsync -av --delete /data/Solom/Solom/Anime /data/Ancalagon/Ancalagon/Anime /remote/Abdo-NAS/main &&
-rsync -av --delete /data/Abdo/Abdo/Abdos\ University\ work /remote/Abdo-NAS/main && 
-rsync -av --delete /data/Abdo/Abdo/images /remote/Abdo-NAS/main &&
-rsync -av --delete /data/Abdo/Abdo/music /remote/Abdo-NAS/main &&
-rsync -av --delete /data/Abdo/Abdo/TV\ shows /data/Solom/Solom/TV\ shows /data/Ancalagon/Ancalagon/TV\ shows /remote/Abdo-NAS/main
+rsync -avhP /data/Solom/Solom/Anime /data/Ancalagon/Ancalagon/Anime tank.lan::tank/media &&
+rsync -avhP /data/Abdo/Abdo/Abdos\ University\ work tank.lan::tank && 
+rsync -avhP /data/Abdo/Abdo/images tank.lan::tank &
+rsync -avhP /data/Abdo/Abdo/music tank.lan::tank/media &&
+rsync -avhP /data/Abdo/Abdo/TV\ shows /data/Solom/Solom/TV\ shows /data/Ancalagon/Ancalagon/TV\ shows tank.lan::tank/media
