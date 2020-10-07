@@ -15,6 +15,11 @@ Plug 'justinmk/vim-sneak'
 Plug 'unblevable/quick-scope'
 Plug 'dylanaraps/wal.vim'
 Plug 'lervag/vimtex'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'chrisbra/csv.vim'
 
 call plug#end()
 
@@ -41,3 +46,6 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 
+let g:sneak#label = 1
+
+packadd termdebug

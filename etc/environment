@@ -5,3 +5,5 @@
 #
 QT_QPA_PLATFORMTHEME=qt5ct
 TERMINAL=alacritty
+VISUAL=nvim
+EDITOR=nvim
