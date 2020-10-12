@@ -20,6 +20,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/csv.vim'
+Plug 'mcchrish/nnn.vim'
 
 call plug#end()
 

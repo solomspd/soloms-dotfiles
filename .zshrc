@@ -107,9 +107,15 @@ alias ls='exa -l -a --color=always'
 alias s='i3-swallow'
 alias getIP='curl ipconfig.io'
 alias weather='curl wttr.in'
+alias nnn="nnn -e"
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cat="bat"
+alias less="bat"
 
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
+export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
+export NNN_BMS="a:/data/Abdo/Abdo/Abdos University work;m:/data/"
 
 typeset -A key
 key=(
@@ -141,11 +147,12 @@ key=(
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
+#set --export NNN_FIFO "/tmp/nnn.fifo"
+export NNN_FIFO="/tmp/nnn.fifo"
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-export NNN_PLUG=""
-set --export NNN_FIFO "/tmp/nnn.fifo"
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_zsh
+fi
 
 ramdisk() {
 	if [ -n "$1"]
