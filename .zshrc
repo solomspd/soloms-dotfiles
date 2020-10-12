@@ -144,6 +144,9 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+export NNN_PLUG=""
+set --export NNN_FIFO "/tmp/nnn.fifo"
+
 ramdisk() {
 	if [ -n "$1"]
 	then

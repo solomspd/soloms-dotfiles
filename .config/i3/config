@@ -225,6 +225,8 @@ exec dunst
 exec /usr/lib/polkit-kde-authentication-agent-1
 exec udiskie -a
 exec playerctld 
+exec xset rate 200 45
+exec numlockx
 
 # autostart application
 exec steam
