@@ -141,7 +141,7 @@ alias s='i3-swallow'
 alias getIP='curl ipconfig.io'
 alias weather='curl wttr.in'
 alias nnn="nnn -e -d"
-alias n="n -e -d"
+alias n="n -e -d -R"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cat="bat"
 alias less="bat"

@@ -31,6 +31,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Keybind for browser
+bindsym $mod+b exec chromium
+
 # Move entire workspace to the next monitor
 bindsym $mod+m move workspace to output right
 
@@ -167,9 +170,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # make applications open on a specific workspace
 assign [class="discord"] $ws2
 assign [class="spotify"] $ws2
-assign [class="thunderbird"] $ws2
+assign [class="Thunderbird"] $ws2
 assign [class="qBittorrent"] $ws2
-assign [class="steam"] $ws2
+assign [class="Steam"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -239,6 +242,6 @@ exec numlockx
 exec steam
 exec discord
 # exec steam
-exec qbittorrent
+# exec qbittorrent
 exec spotifyd
 exec thunderbird
