@@ -99,6 +99,39 @@ autoload -U compinit && compinit
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export" as in:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # NOTE: NNN_TMPFILE is fixed, should not be modified
+
+	# ONLY 1 OF THE FOLLOWING LINES CAN BE UNCOMMENTED AT A TIME
+	# Uncomment so cd on quit activates on all exits not just ^G
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+	# Uncomment so it only works with ^G
+    # NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
 alias v='nvim'
 alias math='ipython --profile=solom'
 alias fdisk='sudo fdisk -l'
@@ -107,7 +140,8 @@ alias ls='exa -l -a --color=always'
 alias s='i3-swallow'
 alias getIP='curl ipconfig.io'
 alias weather='curl wttr.in'
-alias nnn="nnn -e"
+alias nnn="nnn -e -d"
+alias n="n -e -d"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cat="bat"
 alias less="bat"
@@ -149,10 +183,6 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 
 #set --export NNN_FIFO "/tmp/nnn.fifo"
 export NNN_FIFO="/tmp/nnn.fifo"
-
-if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
-    source /usr/share/nnn/quitcd/quitcd.bash_zsh
-fi
 
 ramdisk() {
 	if [ -n "$1"]
