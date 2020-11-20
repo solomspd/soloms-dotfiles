@@ -7,8 +7,10 @@ convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 # convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 playerctl -a pause
 
+#set-paused true
 dunstify "DUNST_COMMAND_PAUSE"
 
-i3lock -u -i "$tmpbg"
+i3lock -n -u -i "$tmpbg" & sleep 30m; xset dpms force off
 
+#set-paused false
 dunstify "DUNST_COMMAND_RESUME"

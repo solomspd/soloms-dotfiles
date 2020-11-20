@@ -56,9 +56,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl -p spotifyd play-pause
-bindsym XF86AudioNext exec playerctl -p spotifyd next
-bindsym XF86AudioPrev exec playerctl -p spotifyd previous
+bindsym XF86AudioPlay exec playerctl -p spotify play-pause
+bindsym XF86AudioNext exec playerctl -p spotify next
+bindsym XF86AudioPrev exec playerctl -p spotify previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -132,12 +132,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -183,27 +183,27 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+	bindsym h resize shrink width 10 px or 10 ppt
+		bindsym j resize grow height 10 px or 10 ppt
+		bindsym k resize shrink height 10 px or 10 ppt
+		bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+		bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Down resize grow height 10 px or 10 ppt
+		bindsym Up resize shrink height 10 px or 10 ppt
+		bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+# back to normal: Enter or Escape or $mod+r
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+		bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -211,11 +211,18 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3blocks
-	tray_output primary
-	position top
-	colors {
-	}
+	status_command i3blocks
+		i3bar_command i3bar --transparency
+		tray_output primary
+		position top
+		colors {
+			background #000000CC
+				focused_workspace  #4c7899CC #285577CC #ffffffCC
+				active_workspace   #333333CC #5f676aCC #ffffffCC
+				inactive_workspace #333333CC #222222CC #888888CC
+				urgent_workspace   #2f343aCC #900000CC #ffffffCC
+				binding_mode       #2f343aCC #900000CC #ffffffCC
+		}
 }
 
 default_border pixel 2
@@ -234,14 +241,14 @@ exec nitrogen --restore
 exec dunst
 exec /usr/lib/polkit-kde-authentication-agent-1
 exec udiskie -a
-exec playerctld 
-exec_always xset r rate 200 45
+exec playerctld
+exec_always xset r rate 200 50
 exec numlockx
 
 # autostart application
 exec steam
-exec discord
+exec discord-canary
 # exec steam
 # exec qbittorrent
-exec spotifyd
+exec spotify
 exec thunderbird

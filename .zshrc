@@ -146,10 +146,10 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cat="bat"
 alias less="bat"
 
-export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/data/Abdo/Abdo/Abdos University work;m:/data/"
+export NNN_BMS="a:/data/Abdo/Abdo/Abdos University work;m:/data;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/data/Abdo/Abdo/Abdos University work/Fall 2020;R:/data/Abdo/Abdo/Abdos University work/spring 2020/Research/"
 
 typeset -A key
 key=(
@@ -191,6 +191,10 @@ ramdisk() {
 	else
 		sudo mount -t tmpfs -o size=81928M tmpfs /mnt/ramdisk
 	fi
+}
+
+searchPDF() {
+	find ./ -name '*.pdf' -exec sh -c "pdftotext '{}' - | grep --with-filename --label='{}' --color '$1'" \;
 }
 
 fortune
