@@ -56,9 +56,10 @@ packadd termdebug
 
 " Autoformatting
 au BufWrite * :Autoformat
-let g:formatter_yapf_style = '{USE_TABS: true}'
+let g:formatter_yapf_style = '{use_tabs: true, column_limit: 110}'
 
 set mouse=a
 
-" no tex shortening
-let g:tex_conceal = ""
+" no conceal
+let g:vimtex_syntax_conceal_default = 0
+let g:vim_json_syntax_conceal = 0

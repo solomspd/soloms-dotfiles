@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # If you come from bash you might have to change your $PATH.
@@ -78,15 +78,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-        git
-        ruby
-        autojump
-        zsh-syntax-highlighting
-        zsh-autosuggestions
-        zsh-completions
-        history-substring-search
-        fzf
-		vi-mode
+	git
+	ruby
+	autojump
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	zsh-completions
+	history-substring-search
+	fzf
+	vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,35 +101,51 @@ export LANG=en_US.UTF-8
 
 n ()
 {
-    # Block nesting of nnn in subshells
-    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-        echo "nnn is already running"
-        return
-    fi
+	# Block nesting of nnn in subshells
+	if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+		echo "nnn is already running"
+		return
+	fi
 
-    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
-    # To cd on quit only on ^G, remove the "export" as in:
-    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    # NOTE: NNN_TMPFILE is fixed, should not be modified
+	# The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+	# To cd on quit only on ^G, remove the "export" as in:
+	#     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+	# NOTE: NNN_TMPFILE is fixed, should not be modified
 
 	# ONLY 1 OF THE FOLLOWING LINES CAN BE UNCOMMENTED AT A TIME
 	# Uncomment so cd on quit activates on all exits not just ^G
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+	export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 	# Uncomment so it only works with ^G
-    # NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+	# NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
+	# Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+	# stty start undef
+	# stty stop undef
+	# stty lwrap undef
+	# stty lnext undef
 
-    nnn "$@"
+	nnn "$@"
 
-    if [ -f "$NNN_TMPFILE" ]; then
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
+	if [ -f "$NNN_TMPFILE" ]; then
+		. "$NNN_TMPFILE"
+		rm -f "$NNN_TMPFILE" > /dev/null
+	fi
+}
+
+function countdown(){
+	date1=$((`date +%s` + $1));
+	while [ "$date1" -ge `date +%s` ]; do
+		echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+		sleep 0.1
+	done
+}
+
+function stopwatch(){
+	date1=`date +%s`;
+	while true; do
+		echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+		sleep 0.1
+	done
 }
 
 alias v='nvim'
@@ -149,21 +165,21 @@ alias less="bat"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/data/Abdo/Abdo/Abdos University work;m:/data;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/data/Abdo/Abdo/Abdos University work/Fall 2020;R:/data/Abdo/Abdo/Abdos University work/spring 2020/Research/"
+export NNN_BMS="a:/data/Abdo/Abdo/Abdos University work;m:/data;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/data/Abdo/Abdo/Abdos University work/Winter 2021;R:/data/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/"
 
 typeset -A key
 key=(
-  BackSpace  "${terminfo[kbs]}"
-  Home       "${terminfo[khome]}"
-  End        "${terminfo[kend]}"
-  Insert     "${terminfo[kich1]}"
-  Delete     "${terminfo[kdch1]}"
-  Up         "${terminfo[kcuu1]}"
-  Down       "${terminfo[kcud1]}"
-  Left       "${terminfo[kcub1]}"
-  Right      "${terminfo[kcuf1]}"
-  PageUp     "${terminfo[kpp]}"
-  PageDown   "${terminfo[knp]}"
+	BackSpace  "${terminfo[kbs]}"
+	Home       "${terminfo[khome]}"
+	End        "${terminfo[kend]}"
+	Insert     "${terminfo[kich1]}"
+	Delete     "${terminfo[kdch1]}"
+	Up         "${terminfo[kcuu1]}"
+	Down       "${terminfo[kcud1]}"
+	Left       "${terminfo[kcub1]}"
+	Right      "${terminfo[kcuf1]}"
+	PageUp     "${terminfo[kpp]}"
+	PageDown   "${terminfo[knp]}"
 )
 
 # Setup key accordingly
