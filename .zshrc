@@ -9,7 +9,8 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/solom/.oh-my-zsh"
+export ZSH="/usr/share/oh-my-zsh"
+export ZSH_CUSTOM="/usr/share/zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -17,7 +18,7 @@ export ZSH="/home/solom/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="../zsh-theme-powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -165,7 +166,7 @@ alias less="bat"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/data/Abdo/Abdo/Abdos University work;m:/data;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/data/Abdo/Abdo/Abdos University work/Winter 2021;R:/data/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/"
+export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Winter 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/"
 
 typeset -A key
 key=(
