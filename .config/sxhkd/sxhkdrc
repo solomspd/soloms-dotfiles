@@ -4,15 +4,24 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	alacritty
 
 # program launcher
 super + @space
-	dmenu_run
+	rofi -modi "drun#window" -theme "Arc-Dark" -font "FiraCode Nerd Font 12" -show drun -icon-theme "Papirus" -show-icons
+#	dmenu_run
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# Media player controls
+XF86Audio{Play,Next,Prev}
+	playerctl -p spotify {play-pause,next,prev}
+
+# Launch browser
+super + b
+	chromium
 
 #
 # bspwm hotkeys
