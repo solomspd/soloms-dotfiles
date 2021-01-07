@@ -4,13 +4,13 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 #bspc monitor DP-2 -d I III V VII IX
 #bspc monitor HDMI-0 -d II IV VI VIII X
-bspc monitor DP-2 -d 1 3 5 7
-bspc monitor HDMI-0 -d 2 4 6 8
+bspc monitor DP-2 -d 1 3 5 7 9
+bspc monitor HDMI-0 -d 2 4 6 8 0
 
 bspc config border_width         2
 bspc config window_gap          12
 
-bspc config split_ratio          0.50
+bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
@@ -19,7 +19,10 @@ bspc config focus_follows_pointer true
 bspc config top_padding 20
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
+bspc rule -a discord desktop='2'
+bspc rule -a Spotify desktop='2'
+bspc rule -a Steam desktop='2'
+bspc rule -a Thunderbeard desktop='2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
@@ -35,3 +38,13 @@ dunst &
 udiskie -a &
 unclutter &
 playerctld &
+$HOME/.scripts/launch_polybar.sh &
+flameshot &
+
+# apps
+discord &
+thunderbird &
+steam &
+spotify &
+
+# TODO make general worksapce automatically tab

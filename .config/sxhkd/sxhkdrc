@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	$TERMINAL
 
 # program launcher
 super + @space
@@ -17,11 +17,25 @@ super + Escape
 
 # Media player controls
 XF86Audio{Play,Next,Prev}
-	playerctl -p spotify {play-pause,next,prev}
+	playerctl -p spotify {play-pause,next,previous}
 
 # Launch browser
 super + b
-	chromium
+	$BROWSER
+
+super + ctrl + shift + j
+	poweroff
+
+Print
+	flameshot gui
+
+super + e; {h,j,k,l}
+	$HOME/.scripts/tab.sh add {west,south,north,east} "$(bspc query -N -n focused)"
+
+super + e; r
+	tabbed=$(bspc query -N -n focused); \
+	child=$($HOME/.scripts/tab.sh list $tabbed | head -n1); \
+	$HOME/.scripts/tab.sh remove $child
 
 #
 # bspwm hotkeys
@@ -90,8 +104,10 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
+#super + {_,shift + }{1-9,0}
+#	bspc {desktop -f,node -d} '^{1-9,10}'
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '{1-9,10}'
 
 #
 # preselect

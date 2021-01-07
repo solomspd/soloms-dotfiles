@@ -154,7 +154,7 @@ alias math='ipython --profile=solom'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
 alias ls='exa -l -a --color=always'
-alias s='i3-swallow'
+alias s='devour'
 alias getIP='curl ipconfig.io'
 alias weather='curl wttr.in'
 alias nnn="nnn -e -d"
