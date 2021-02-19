@@ -30,12 +30,12 @@ Print
 	flameshot gui
 
 super + e; {h,j,k,l}
-	$HOME/.scripts/tab.sh add {west,south,north,east} "$(bspc query -N -n focused)"
+	~/.config/bspwm/tab.sh add {west,south,north,east} "$(bspc query -N -n focused)"
 
 super + e; r
 	tabbed=$(bspc query -N -n focused); \
-	child=$($HOME/.scripts/tab.sh list $tabbed | head -n1); \
-	$HOME/.scripts/tab.sh remove $child
+	child=$(~/.config/bspwm/tab.sh list $tabbed | head -n1); \
+	~/.config/bspwm/tab.sh remove $child
 
 #
 # bspwm hotkeys
@@ -144,3 +144,9 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+super + n
+  desk=$(bspc query -D -d focused); \
+  bspc desktop -m next; \
+  bspc monitor -f next; \
+  bspc desktop -f "$desk"

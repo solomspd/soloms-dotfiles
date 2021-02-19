@@ -5,7 +5,7 @@ Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " Plug 'ap/vim-css-color'
 " Plug 'flazz/vim-colorschemes'
 " Plug 'rafi/awesome-vim-colorschemes'
@@ -14,7 +14,7 @@ Plug 'mbbill/undotree'
 " Plug 'justinmk/vim-sneak'
 " Plug 'unblevable/quick-scope'
 Plug 'dylanaraps/wal.vim'
-" Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 Plug 'airblade/vim-gitgutter'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim'
@@ -22,6 +22,7 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'mcchrish/nnn.vim'
 " Plug 'yggdroot/indentline'
 Plug 'Chiel92/vim-autoformat'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -63,3 +64,9 @@ set mouse=a
 " no conceal
 let g:vimtex_syntax_conceal_default = 0
 let g:vim_json_syntax_conceal = 0
+
+" auto open nerdtree
+autocmd VimEnter * NERDTree | wincmd p
+" close nerdtree with last window
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif

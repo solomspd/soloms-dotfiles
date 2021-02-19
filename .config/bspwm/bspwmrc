@@ -2,6 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+bspc rule -r *
+
 #bspc monitor DP-2 -d I III V VII IX
 #bspc monitor HDMI-0 -d II IV VI VIII X
 bspc monitor DP-2 -d 1 3 5 7 9
@@ -28,23 +30,26 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # rules
+bspc rule -a scratchpad sticky=on state=floating hidden=on
+[ "$(ps -x | grep -c 'scratchpadwin')" -eq "1" ] && $TERMINAL --class scratchpadwin -e ~/.scripts/scratchpad &
 
 # initial startup config
-picom --experimental-backend &
+killall -q picom; picom --experimental-backend &
 nitrogen --restore &
 xset r rate 200 50 &
-numlockx &
-dunst &
-udiskie -a &
-unclutter &
-playerctld &
-$HOME/.scripts/launch_polybar.sh &
-flameshot &
+killall -q numlockx; numlockx &
+killall -q dunst; dunst &
+killall -q udiskie; udiskie -a &
+killall -q unclutter; unclutter &
+killall -q playerctld; playerctld &
+~/.scripts/launch_polybar.sh &
 
 # apps
-discord &
-thunderbird &
-steam &
-spotify &
+killall -q discord; discord &
+killall -q thunderbird; thunderbird &
+killall -q steam; steam &
+killall -q spotify; spotify &
 
 # TODO make general worksapce automatically tab
+# TODO make all ufocused windows hidden when going into monacle or fullscreen
+# TODO better scratchpad

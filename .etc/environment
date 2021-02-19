@@ -14,3 +14,5 @@ VIDEO=mpv
 OPENER=xdg-open
 COLORTERM=truecolor
 WM=i3
+SENSOR_CHIP=coretemp-isa-0000
+STATUSBAR=polybar

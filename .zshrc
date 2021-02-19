@@ -156,7 +156,7 @@ alias iotop='sudo iotop'
 alias ls='exa -l -a --color=always'
 alias s='devour'
 alias getIP='curl ipconfig.io'
-alias weather='curl wttr.in'
+alias weather='curl wttr.in/Cairo'
 alias nnn="nnn -e -d"
 alias n="n -e -d -R"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -212,6 +212,19 @@ ramdisk() {
 
 searchPDF() {
 	find ./ -name '*.pdf' -exec sh -c "pdftotext '{}' - | grep --with-filename --label='{}' --color '$1'" \;
+}
+
+
+htop() {
+	TERMTEMP="$TERM"
+	TERM="xterm-256color"
+	/bin/htop "$@"
+	TERM="$TERMTEMP"
+}
+
+mkcd() {
+	mkdir -p "$1"
+	cd "$1"
 }
 
 fortune

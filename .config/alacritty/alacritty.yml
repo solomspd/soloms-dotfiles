@@ -3,10 +3,17 @@ font:
         family: "FiraCode Nerd Font"
         style: "Retina"
         size: 12
+    italic:
+        family: "FiraCode Nerd Font"
+        style: "Italic"
+        size: 12
+    bold:
+        family: "FiraCode Nerd Font"
+        style: "Bold"
+        size: 12
 
 window:
     dynamic_padding: true
-
     decorations: full
 
 scrolling:

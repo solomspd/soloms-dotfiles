@@ -41,7 +41,9 @@ c.InteractiveShellApp.exec_lines = [
         'x, y, z, t = sym.symbols(\'x y z t\')',
         'k, m, n = sym.symbols(\'k m n\', integer=True)',
         'f, g, h = sym.symbols(\'f g h\', cls=sym.Function)',
-        'sym.init_printing()'
+        'sym.init_printing()',
+		'n = lambda x: np.array(x)',
+		's = lambda x: sym.sympify(x)'
 ]
 
 ## A list of dotted module names of IPython extensions to load.
