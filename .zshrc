@@ -55,7 +55,7 @@ ZSH_THEME="../zsh-theme-powerlevel10k/powerlevel10k"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -154,6 +154,7 @@ alias math='ipython --profile=solom'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
 alias ls='exa -l -a --color=always'
+alias l='exa -l --color=always'
 alias s='devour'
 alias getIP='curl ipconfig.io'
 alias weather='curl wttr.in/Cairo'
