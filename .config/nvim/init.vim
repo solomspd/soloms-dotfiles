@@ -23,6 +23,7 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'yggdroot/indentline'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ryanoasis/vim-devicons'
+Plug 'stevearc/vim-arduino'
 
 call plug#end()
 

@@ -38,6 +38,7 @@ c.InteractiveShellApp.exec_lines = [
         'import sympy as sym',
         'import math',
 		'import cupy as cp',
+		'import random',
         'x, y, z, t = sym.symbols(\'x y z t\')',
         'k, m, n = sym.symbols(\'k m n\', integer=True)',
         'f, g, h = sym.symbols(\'f g h\', cls=sym.Function)',

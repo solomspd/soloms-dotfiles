@@ -32,7 +32,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Keybind for browser
-bindsym $mod+b exec chromium
+bindsym $mod+b exec firefox
 
 # Move entire workspace to the next monitor
 bindsym $mod+m move workspace to output right
@@ -246,7 +246,6 @@ exec picom --experimental-backend
 # exec guake
 exec nitrogen --restore
 exec dunst
-# exec /usr/lib/polkit-kde-authentication-agent-1
 exec udiskie -a
 exec playerctld
 exec_always xset r rate 200 50

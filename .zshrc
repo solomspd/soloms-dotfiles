@@ -158,11 +158,12 @@ alias l='exa -l --color=always'
 alias s='devour'
 alias getIP='curl ipconfig.io'
 alias weather='curl wttr.in/Cairo'
-alias nnn="nnn -e -d"
-alias n="n -e -d -R"
+alias nnn='nnn -e -d'
+alias n='n -e -d -R'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cat="bat"
-alias less="bat"
+alias cat='bat'
+alias less='bat'
+alias c='clear'
 
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -226,6 +227,22 @@ htop() {
 mkcd() {
 	mkdir -p "$1"
 	cd "$1"
+}
+
+swapF() {
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE
+    mv "$2" "$1"
+    mv $TMPFILE "$2"
+}
+
+C() {
+	cd ~/
+	clear
+}
+
+cheat() {
+	curl cheat.sh/"$@"
 }
 
 fortune
