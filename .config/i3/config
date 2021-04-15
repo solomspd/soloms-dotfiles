@@ -41,6 +41,8 @@ bindsym $mod+m move workspace to output right
 bindsym $mod+ctrl+l exec .scripts/i3lock.sh
 # Shutdown shortcut
 bindsym $mod+ctrl+shift+j exec poweroff
+# suspend to RAM shorcut
+bindsym $mod+ctrl+shift+s exec systemctl suspend
 
 # Main screenshot util
 bindsym Print --release exec flameshot gui

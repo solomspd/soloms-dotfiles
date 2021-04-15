@@ -153,7 +153,7 @@ alias v='nvim'
 alias math='ipython --profile=solom'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
-alias ls='exa -l -a --color=always'
+alias ls='exa -l -a --color=always --icons'
 alias l='exa -l --color=always'
 alias s='devour'
 alias getIP='curl ipconfig.io'
@@ -168,7 +168,7 @@ alias c='clear'
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Winter 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/"
+export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Spring 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/"
 
 typeset -A key
 key=(
