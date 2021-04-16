@@ -38,7 +38,7 @@ bindsym $mod+b exec firefox
 bindsym $mod+m move workspace to output right
 
 # Lock screen script keybinding
-bindsym $mod+ctrl+l exec .scripts/i3lock.sh
+bindsym $mod+ctrl+l exec ~/.scripts/i3lock.sh
 # Shutdown shortcut
 bindsym $mod+ctrl+shift+j exec poweroff
 # suspend to RAM shorcut
@@ -252,7 +252,7 @@ exec udiskie -a
 exec playerctld
 exec_always xset r rate 200 50
 exec numlockx
-exec xautolock -locker '~/.scripts/i3lock.sh'
+exec xidlehook --not-when-fullscreen --not-when-audio --timer 600 '~/.scripts/i3lock.sh' --timer 1800 'systemctl suspend'
 
 # autostart application
 exec steam
