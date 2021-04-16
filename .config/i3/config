@@ -252,6 +252,7 @@ exec udiskie -a
 exec playerctld
 exec_always xset r rate 200 50
 exec numlockx
+exec xautolock -locker '~/.scripts/i3lock.sh'
 
 # autostart application
 exec steam

@@ -10,7 +10,7 @@ playerctl -a pause
 #set-paused true
 dunstify "DUNST_COMMAND_PAUSE"
 
-i3lock -n -u -i "$tmpbg" & sleep 30m; xset dpms force off
+i3lock -u -i "$tmpbg"; sleep 15m; pgrep i3lock && systemctl suspend
 
 #set-paused false
 dunstify "DUNST_COMMAND_RESUME"
