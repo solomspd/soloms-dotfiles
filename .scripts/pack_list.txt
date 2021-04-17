@@ -137,5 +137,6 @@ python
 cython
 python-numpy
 python-pandas
-python-
+python-tqdm
+boost
 

@@ -252,7 +252,7 @@ exec udiskie -a
 exec playerctld
 exec_always xset r rate 200 50
 exec numlockx
-exec xidlehook --not-when-fullscreen --not-when-audio --timer 600 '~/.scripts/i3lock.sh' --timer 1800 'systemctl suspend'
+exec xidlehook --not-when-fullscreen --not-when-audio --timer 599 '~/.scripts/i3lock.sh' '' --timer 1800 'systemctl suspend' ''
 
 # autostart application
 exec steam
