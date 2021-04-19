@@ -103,6 +103,9 @@ unclutter
 youtube-dl
 zeal
 zotero
+filezilla
+virt-viewer
+tree
 
 # X11 specific:
 picom
@@ -138,5 +141,11 @@ cython
 python-numpy
 python-pandas
 python-tqdm
+python-argparse
+python-matplotlib
+python-pip
+python-pywal
+python-scikit-learn
+python-scipy
+python-sympy
 boost
-
