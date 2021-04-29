@@ -246,6 +246,10 @@ cheat() {
 	curl cheat.sh/"$@"
 }
 
+m() {
+	python -c "print($@)"
+}
+
 fortune
 
 # Preferred editor for local and remote sessions

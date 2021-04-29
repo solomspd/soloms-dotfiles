@@ -25,7 +25,7 @@ font pango:FiraCode Nerd Font 12
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -38,11 +38,11 @@ bindsym $mod+b exec firefox
 bindsym $mod+m move workspace to output right
 
 # Lock screen script keybinding
-bindsym $mod+ctrl+l exec ~/.scripts/i3lock.sh
+bindsym $mod+ctrl+l exec ~/.scripts/Xlock.sh
 # Shutdown shortcut
 bindsym $mod+ctrl+shift+j exec poweroff
 # suspend to RAM shorcut
-bindsym $mod+ctrl+shift+s exec systemctl suspend
+bindsym $mod+ctrl+shift+s exec ~/.scripts/Xsuspend.sh
 
 # Main screenshot util
 bindsym Print --release exec flameshot gui
@@ -252,7 +252,7 @@ exec udiskie -a
 exec playerctld
 exec_always xset r rate 200 50
 exec numlockx
-exec xidlehook --not-when-fullscreen --not-when-audio --timer 599 '~/.scripts/i3lock.sh' '' --timer 1800 'systemctl suspend' ''
+exec xidlehook --not-when-fullscreen --not-when-audio --timer 300 '~/.scripts/Xlock.sh' '' --timer 900 "xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness .1" "xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness 1" --timer 1800 'systemctl suspend' ''
 
 # autostart application
 exec steam

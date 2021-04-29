@@ -17,5 +17,5 @@ dunstify "DUNST_COMMAND_PAUSE"
 i3lock -n -u -i "$tmpbg"
 
 # resume notifications
-dunstify "DUNST_COMMAND_RESUME")
+dunstify "DUNST_COMMAND_RESUME"
 
