@@ -8,6 +8,8 @@ icon='/home/solom/.scripts/lock.png'
 maim "${tmpbg}" # take screenshot
 convert "${tmpbg}" -scale 10% -scale 1000% "${tmpbg}" # pixilate screenshot
 
+old_IFS="${IFS}"
+
 screen=$(xrandr | grep -Eow '([0-9]*x[0-9]*\+[0-9]*\+[0-9]*)' | xargs)
 read -ra screen <<< "${screen}"
 icon_dim=$(convert ".scripts/lock.png" -print "%wx%h\n" /dev/null)
@@ -19,6 +21,8 @@ for i in "${screen[@]}"; do # i[1] = w px; i[2] = h px; i[3] = x offset; i[4] = 
 	newy=$((i[3] + i[1]/2 - icon_dim[1]/2))
 	convert "${tmpbg}" "${icon}" -geometry "+${newx}+${newy}" -composite -matte "${tmpbg}"
 done
+
+IFS="${old_IFS}"
 
 # pause music
 playerctl -a pause
