@@ -29,11 +29,11 @@ IFS="${old_IFS}" # restore IFS
 playerctl -a pause
 
 # pause notifications
-dunstify "DUNST_COMMAND_PAUSE"
+dunstctl set-paused true
 
 # lock screen with generated screenshot
 i3lock -n -u -i "${tmpbg}"
 
 # resume notifications
-dunstify "DUNST_COMMAND_RESUME"
+dunstctl set-paused false
 

@@ -1,6 +1,8 @@
 #!/bin/sh
-rsync -avhP /data/Solom/Solom/Anime /data/Ancalagon/Ancalagon/Anime tank.lan::tank/media &&
-rsync -avhP /data/Abdo/Abdo/Abdos\ University\ work tank.lan::tank && 
-rsync -avhP /data/Abdo/Abdo/images tank.lan::tank &
-rsync -avhP /data/Abdo/Abdo/music tank.lan::tank/media &&
-rsync -avhP /data/Abdo/Abdo/TV\ shows /data/Solom/Solom/TV\ shows /data/Ancalagon/Ancalagon/TV\ shows tank.lan::tank/media
+
+nfs_loc='tank.lan'
+rsync -avhP /mnt/Abdo/Abdo/Abdos\ University\ work "$nfs_loc"::tank && 
+rsync -avhP /mnt/Abdo/Abdo/images "$nfs_loc"::tank
+# rsync -avhP /mnt/Solom/Solom/Anime /data/Ancalagon/Ancalagon/Anime "$nfs_loc"::tank/media &&
+# rsync -avhP /mnt/Abdo/Abdo/music "$nfs_loc"::tank/media &&
+# rsync -avhP /mnt/Abdo/Abdo/TV\ shows /data/Solom/Solom/TV\ shows /data/Ancalagon/Ancalagon/TV\ shows "$nfs_loc"::tank/media
