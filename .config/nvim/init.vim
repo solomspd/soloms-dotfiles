@@ -24,6 +24,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ryanoasis/vim-devicons'
 Plug 'stevearc/vim-arduino'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 

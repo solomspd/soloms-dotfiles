@@ -214,7 +214,7 @@ ramdisk() {
 }
 
 searchPDF() {
-	find ./ -name '*.pdf' -exec sh -c "pdftotext '{}' - | grep --with-filename --label='{}' --color '$1'" \;
+	find ./ -name '*.pdf' -exec sh -c "pdftotext '{}' - | grep --with-filename -i --label='{}' --color '$1'" \;
 }
 
 

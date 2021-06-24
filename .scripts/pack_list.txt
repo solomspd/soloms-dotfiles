@@ -35,7 +35,6 @@ qtile
 audacity
 calibre
 calcurse
-clang
 obs-studio
 dash
 rofi
@@ -51,13 +50,10 @@ cowsay
 lolcat
 bat
 sl
-emacs
 exa
 skim
 fzf
 git
-github-cli
-godot
 gparted
 handbrake
 handbrake-cli
@@ -85,7 +81,6 @@ osprober
 pandoc
 playerctl
 pydf
-rust
 rclone
 rsync
 screenkey
@@ -148,4 +143,11 @@ python-pywal
 python-scikit-learn
 python-scipy
 python-sympy
+python-pillow
 boost
+risc-v
+rust
+github-cli
+godot
+emacs
+clang
