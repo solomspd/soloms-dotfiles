@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pgrep i3lock && exit 0
+pgrep i3lock && exit 0 # check screen isnt already locked
 
 tmpbg='/tmp/lockscreen.png' 
 icon='/home/solom/.scripts/lock.png'

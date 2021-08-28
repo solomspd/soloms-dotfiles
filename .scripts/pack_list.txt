@@ -153,3 +153,7 @@ emacs
 clang
 cloc
 github
+dart
+flutter
+android-studio
+perl

@@ -10,9 +10,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/share/oh-my-zsh"
-export ZSH_CUSTOM="/usr/share/zsh"
-
-# Set name of the theme to load --- if set to "random", it will
+export ZSH_CUSTOM="/usr/share/zsh" # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -153,10 +151,9 @@ alias v='nvim'
 alias math='ipython --profile=solom'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
-alias ls='exa -l -a --color=always --icons'
+alias ls='exa -l -a -H --color=always --icons'
 alias l='exa -l --color=always'
 alias s='devour'
-alias getIP='curl ipconfig.io'
 alias weather='curl wttr.in/Cairo'
 alias nnn='nnn -e -d'
 alias n='n -e -d -R'
@@ -169,7 +166,7 @@ alias dmesg='dmesg --color=always'
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Spring 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/"
+export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Spring 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;"
 
 typeset -A key
 key=(
@@ -203,6 +200,10 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 
 #set --export NNN_FIFO "/tmp/nnn.fifo"
 export NNN_FIFO="/tmp/nnn.fifo"
+
+getIP() {
+	curl ifconfig.io/{ip,host,country_code}
+}
 
 ramdisk() {
 	if [ -n "$1"]
