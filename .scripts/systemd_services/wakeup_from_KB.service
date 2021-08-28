@@ -1,0 +1,11 @@
+[Unit]
+Description=Enables waking up from sleep/suspend by clicking on the keyboard
+
+[Service]
+Type=simple
+User=root
+ExecStartPre=/bin/sleep 30
+ExecStart=echo enabled > /sys/bus/usb/devices/3-10.2/power/wakeup
+
+[Install]
+WantedBy=multi-user.target
