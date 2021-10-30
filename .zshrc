@@ -86,6 +86,8 @@ plugins=(
 	history-substring-search
 	fzf
 	vi-mode
+	vscode
+	python
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -166,7 +168,7 @@ alias dmesg='dmesg --color=always'
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Spring 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;"
+export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Fall 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdo/Abdos University work/senior-project;"
 
 typeset -A key
 key=(
@@ -251,6 +253,8 @@ m() {
 	python -c "print($@)"
 }
 
+. /opt/anaconda/etc/profile.d/conda.sh
+
 fortune
 
 # Preferred editor for local and remote sessions
@@ -274,3 +278,5 @@ fortune
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /home/solom/.config/broot/launcher/bash/br
