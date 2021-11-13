@@ -260,6 +260,8 @@ exec playerctld
 exec_always xset r rate 200 50
 exec numlockx
 exec xidlehook --not-when-fullscreen --not-when-audio --timer 300 '~/.scripts/Xlock.sh' '' --timer 900 "xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness .1" "xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness 1" --timer 1800 "systemctl suspend" "sleep 8s; xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness 1"
+# exec_always xmodmap ~/.scripts/swap_super_alt
+exec_always setxkbmap -option altwin:swap_lalt_lwin
 
 # autostart application
 exec steam

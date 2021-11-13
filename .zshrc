@@ -168,7 +168,7 @@ alias dmesg='dmesg --color=always'
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Fall 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdo/Abdos University work/senior-project;"
+export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Fall 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdo/Abdos University work/senior-project;d:~/Downloads"
 
 typeset -A key
 key=(
@@ -208,6 +208,7 @@ getIP() {
 }
 
 ramdisk() {
+	[ ! -d "/mnt/ramdisk" ] && sudo mkdir "/mnt/ramdisk"
 	if [ -n "$1"]
 	then
 		sudo mount -t tmpfs -o size="$1"M tmpfs /mnt/ramdisk
