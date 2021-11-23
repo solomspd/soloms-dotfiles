@@ -251,8 +251,8 @@ gaps inner 20
 # exec nvidia-settings -l
 exec unclutter
 exec picom --experimental-backend
-# exec xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --left-of DP-2 --output DP-2 --primary --mode 2560x1440 --rate 165
 # exec guake
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always nitrogen --restore
 exec dunst
 exec udiskie -a
