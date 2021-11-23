@@ -25,6 +25,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'ryanoasis/vim-devicons'
 Plug 'stevearc/vim-arduino'
 Plug 'rust-lang/rust.vim'
+Plug 'github/copilot.vim'
 
 call plug#end()
 

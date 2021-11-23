@@ -204,7 +204,7 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 export NNN_FIFO="/tmp/nnn.fifo"
 
 getIP() {
-	curl ifconfig.io/{ip,host,country_code}
+	curl ifconfig.io/all.json | jq
 }
 
 ramdisk() {
