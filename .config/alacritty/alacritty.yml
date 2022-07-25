@@ -15,8 +15,7 @@ font:
 window:
     dynamic_padding: true
     decorations: full
+    opacity: 0.9
 
 scrolling:
     history: 100000
-
-background_opacity: 0.8

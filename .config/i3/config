@@ -32,7 +32,7 @@ font pango:FiraCode Nerd Font 12
 exec --no-startup-id nm-applet
 
 # Keybind for browser
-bindsym $mod+b exec chromium
+bindsym $mod+b exec google-chrome-stable
 
 # Move entire workspace to the next monitor
 bindsym $mod+m move workspace to output right
@@ -219,21 +219,21 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	status_command i3blocks
-		i3bar_command i3bar --transparency
-		tray_output primary
-		position top
-		colors {
-			background #000000CC
-				focused_workspace  #4c7899CC #285577CC #ffffffCC
-				active_workspace   #333333CC #5f676aCC #ffffffCC
-				inactive_workspace #333333CC #222222CC #888888CC
-				urgent_workspace   #2f343aCC #900000CC #ffffffCC
-				binding_mode  #4c7899CC #285577CC #ffffffCC
-				# binding_mode       #2f343aCC #900000CC #ffffffCC
-		}
-}
+#bar {
+#	status_command i3blocks
+#		i3bar_command i3bar --transparency
+#		tray_output primary
+#		position top
+#		colors {
+#			background #000000CC
+#				focused_workspace  #4c7899CC #285577CC #ffffffCC
+#				active_workspace   #333333CC #5f676aCC #ffffffCC
+#				inactive_workspace #333333CC #222222CC #888888CC
+#				urgent_workspace   #2f343aCC #900000CC #ffffffCC
+#				binding_mode  #4c7899CC #285577CC #ffffffCC
+#				# binding_mode       #2f343aCC #900000CC #ffffffCC
+#		}
+#}
 
 default_border pixel 4
 new_window pixel 4
@@ -248,11 +248,11 @@ bindsym $mod+minus scratchpad show
 gaps inner 20
 
 # autostart services and initial startup configs
-# exec nvidia-settings -l
+exec nvidia-settings -l
 exec unclutter
-exec picom --experimental-backend
+exec_always killall picom; picom --experimental-backend
 # exec guake
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always nitrogen --restore
 exec dunst
 exec udiskie -a
@@ -262,6 +262,7 @@ exec numlockx
 exec xidlehook --not-when-fullscreen --not-when-audio --timer 300 '~/.scripts/Xlock.sh' '' --timer 900 "xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness .1" "xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness 1" --timer 1800 "systemctl suspend" "sleep 8s; xrandr | awk '/ connected/{print \$1}' | xargs -I {} xrandr --output '{}' --brightness 1"
 # exec_always xmodmap ~/.scripts/swap_super_alt
 exec_always setxkbmap -option altwin:swap_lalt_lwin
+exec flameshot
 
 # autostart application
 exec steam

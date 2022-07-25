@@ -45,10 +45,10 @@ killall -q playerctld; playerctld &
 ~/.scripts/launch_polybar.sh &
 
 # apps
-killall -q discord; discord &
-killall -q thunderbird; thunderbird &
-killall -q steam; steam &
-killall -q spotify; spotify &
+#killall -q discord; discord &
+#killall -q thunderbird; thunderbird &
+#killall -q steam; steam &
+#killall -q spotify; spotify &
 
 # TODO make general worksapce automatically tab
 # TODO make all ufocused windows hidden when going into monacle or fullscreen

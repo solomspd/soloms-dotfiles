@@ -42,7 +42,6 @@ ZSH_THEME="../zsh-theme-powerlevel10k/powerlevel10k"
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
@@ -151,6 +150,7 @@ function stopwatch(){
 
 alias v='nvim'
 alias math='ipython --profile=solom'
+alias m='octave'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
 alias ls='exa -l -a -H --color=always --icons'
@@ -160,15 +160,15 @@ alias weather='curl wttr.in/Cairo'
 alias nnn='nnn -e -d'
 alias n='n -e -d -R'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cat='bat'
-alias less='bat'
+alias cat='bat --paging=never'
+alias less='bat --paging=always'
 alias c='clear'
 alias dmesg='dmesg --color=always'
 
-export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin"
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:$HOME/.local/bin:$HOME/.npm-global/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/mnt/Abdo/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdo/Abdos University work/Fall 2021;R:/mnt/Abdo/Abdo/Abdos University work/spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdo/Abdos University work/senior-project;d:~/Downloads"
+export NNN_BMS="a:/mnt/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdos University work/Spring 2022;R:/mnt/Abdo/Abdos University work/Spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdos University work/senior-project;d:~/Downloads"
 
 typeset -A key
 key=(
@@ -250,11 +250,32 @@ cheat() {
 	curl cheat.sh/"$@"
 }
 
-m() {
-	python -c "print($@)"
+extract() {
+	for arg in $@ ; do
+		if [ -f $arg ] ; then
+			case $arg in
+				*.tar.bz2)  tar xjf $arg      ;;
+				*.tar.gz)   tar xzf $arg      ;;
+				*.tar.xz)   tar xf $arg       ;;
+				*.bz2)      bunzip2 $arg      ;;
+				*.gz)       gunzip $arg       ;;
+				*.tar)      tar xf $arg       ;;
+				*.tbz2)     tar xjf $arg      ;;
+				*.tgz)      tar xzf $arg      ;;
+				*.zip)      unzip $arg        ;;
+				*.Z)        uncompress $arg   ;;
+				*.rar)      unrar x $arg      ;;  # 'rar' must to be installed
+				*.jar)      jar -xvf $arg     ;;  # 'jdk' must to be installed
+				*)          echo "'$arg' cannot be extracted via extract()" ;;
+			esac
+		else
+			echo "'$arg' is not a valid file"
+		fi
+	done
 }
 
 . /opt/anaconda/etc/profile.d/conda.sh
+eval "$(zoxide init zsh)"
 
 fortune
 
@@ -279,5 +300,13 @@ fortune
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#source /home/solom/.config/broot/launcher/bash/br
+
+PATH="/home/solom/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/solom/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/solom/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/solom/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/solom/perl5"; export PERL_MM_OPT;
 
 source /home/solom/.config/broot/launcher/bash/br

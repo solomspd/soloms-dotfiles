@@ -37,15 +37,17 @@ c.InteractiveShellApp.exec_lines = [
         'import scipy as sci',
         'import sympy as sym',
         'import math',
-		'import cupy as cp',
-		'import random',
-		'import numpy_financial as npf',
+        'import cupy as cp',
+        'import random',
+        'from tqdm import tqdm, trange',
+        'from fractions import Fraction as frac',
+        'import numpy_financial as npf',
         'x, y, z, t = sym.symbols(\'x y z t\')',
         'k, m, n = sym.symbols(\'k m n\', integer=True)',
         'f, g, h = sym.symbols(\'f g h\', cls=sym.Function)',
         'sym.init_printing()',
-		'n = lambda x: np.array(x)',
-		's = lambda x: sym.sympify(x)'
+        'n = lambda x: np.array(x)',
+        's = lambda x: sym.sympify(x)'
 ]
 
 ## A list of dotted module names of IPython extensions to load.
