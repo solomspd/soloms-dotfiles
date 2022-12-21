@@ -2,29 +2,17 @@
 
 pgrep swaylock && exit 0 # check screen isnt already locked
 
-tmpbg='/tmp/lockscreen.png' 
 icon='/home/solom/.scripts/lock.png'
 
-grim "${tmpbg}" # take screenshot
-convert "${tmpbg}" -scale 10% -scale 1000% "${tmpbg}" # pixilate screenshot
-
-old_IFS="${IFS}" # to restore IFS when we're done manipulating it for good measure
-
-icon_dim=$(convert ".scripts/lock.png" -print "%wx%h\n" /dev/null) # get dimentions of lock icon
-IFS='x' read -ra icon_dim <<< "${icon_dim}" # turn dimentions into array
-
-# Loop over each monitor, get coordinates to center lock icon and composite it onto screenshot
-for i in $(swaymsg -t get_outputs | jq -r '.[] | @base64'); do
-	cur=$i | base64 -d | jq -r ".rect"
-	newx=$(($(echo $cur | jq -r ".x") + $(echo $cur | jq -r ".width")/2 - icon_dim[0]/2))
-	newy=$(($(echo $cur | jq -r ".y") + $(echo $cur | jq -r ".height")/2 - icon_dim[0]/2))
-	convert "${tmpbg}" "${icon}" -geometry "+${newx}+${newy}" -composite -matte "${tmpbg}"
+# loop over every display
+for OUTPUT in `swaymsg -t get_outputs | jq -r '.[].name'`
+do
+    IMAGE=/tmp/$OUTPUT-lock.png
+    grim -o $OUTPUT $IMAGE
+    convert $IMAGE -scale 4% -scale 2500%  - | composite -gravity center $icon - $IMAGE
+    LOCKARGS="${LOCKARGS} --image ${OUTPUT}:${IMAGE}"
+    IMAGES="${IMAGES} ${IMAGE}"
 done
-
-
-IFS="${old_IFS}" # restore IFS
-
-exit
 
 # pause music
 playerctl -a pause
@@ -33,7 +21,10 @@ playerctl -a pause
 dunstctl set-paused true
 
 # lock screen with generated screenshot
-swaylock -u -i "${tmpbg}"
+#swaylock --indicator-radius 100 --text-color=ffffff00 --inside-color=ffffff1c --ring-color=ffffff3e --line-color=ffffff00 --key-hl-color=00000080 --ring-ver-color=00000000 --inside-ver-color=0000001c --ring-wrong-color=00000055 --inside-wrong-color=0000001c  $LOCKARGS
+swaylock -f -u $LOCKARGS
+
+rm $IMAGES
 
 # resume notifications
 dunstctl set-paused false

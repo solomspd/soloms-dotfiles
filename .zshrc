@@ -87,7 +87,13 @@ plugins=(
 	vi-mode
 	vscode
 	python
+	tmux
 )
+
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=false
+ZSH_TMUX_AUTOCONNECT=false
+#ZSH_TMUX_AUTOQUIT=false
 
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
@@ -168,7 +174,7 @@ alias dmesg='dmesg --color=always'
 export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:$HOME/.local/bin:$HOME/.npm-global/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
-export NNN_BMS="a:/mnt/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdos University work/Spring 2022;R:/mnt/Abdo/Abdos University work/Spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdos University work/senior-project;d:~/Downloads"
+export NNN_BMS="a:/mnt/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdos University work/Fall 2022;R:/mnt/Abdo/Abdos University work/Spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdos University work/senior-project;d:~/Downloads"
 
 typeset -A key
 key=(
@@ -274,7 +280,21 @@ extract() {
 	done
 }
 
-. /opt/anaconda/etc/profile.d/conda.sh
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/solom/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/solom/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/solom/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/solom/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 eval "$(zoxide init zsh)"
 
 fortune

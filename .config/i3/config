@@ -32,7 +32,7 @@ font pango:FiraCode Nerd Font 12
 exec --no-startup-id nm-applet
 
 # Keybind for browser
-bindsym $mod+b exec google-chrome-stable
+bindsym $mod+b exec firefox
 
 # Move entire workspace to the next monitor
 bindsym $mod+m move workspace to output right
@@ -49,6 +49,8 @@ bindsym $mod+ctrl+shift+s exec ~/.scripts/Xsuspend.sh
 bindsym Print --release exec flameshot gui
 # Alternate screenshot util
 bindsym Shift+Print exec maim | xclip -selection clipboard -t image/png
+
+bindsym $mod+p exec code
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -250,7 +252,7 @@ gaps inner 20
 # autostart services and initial startup configs
 exec nvidia-settings -l
 exec unclutter
-exec_always killall picom; picom --experimental-backend
+exec_always killall picom; picom
 # exec guake
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always nitrogen --restore

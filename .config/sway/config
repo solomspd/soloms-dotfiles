@@ -27,8 +27,11 @@ set $menu wofi --show drun | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
+#output HDMI-A-1 mode 1920x1080@60Hz pos 0 360 scale 1.0 bg ~/Pictures/wallpapers/abyss.png fill
+#output DP-2 mode 3840x2160@144Hz pos 1920 0 adaptive_sync on scale 1.5 bg ~/Pictures/wallpapers/mushishi_wander_warm.jpg fill render_bit_depth 10
+#output DP-3 mode 2560x1440@165Hz pos 4480 0 adaptive_sync on scale 1.0 bg ~/Pictures/wallpapers/building_chip_anime.jpg fill
 output HDMI-A-1 mode 1920x1080@60Hz pos 0 360 scale 1.0 bg ~/Pictures/wallpapers/abyss.png fill
-output DP-2 mode 3840x2160@144Hz pos 1920 0 adaptive_sync on scale 1.5 bg ~/Pictures/wallpapers/mushishi_wander_warm.jpg fill render_bit_depth 10
+output DP-2 mode 3840x2160@144Hz pos 1920 0 adaptive_sync on scale 1.5 bg ~/Pictures/wallpapers/mushishi_wander_warm.jpg fill
 output DP-3 mode 2560x1440@165Hz pos 4480 0 adaptive_sync on scale 1.0 bg ~/Pictures/wallpapers/building_chip_anime.jpg fill
 
 # Example configuration:
@@ -39,20 +42,12 @@ output DP-3 mode 2560x1440@165Hz pos 4480 0 adaptive_sync on scale 1.0 bg ~/Pict
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 '~/.scripts/Wlock.sh' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+         before-sleep '~/.scripts/Wlock.sh'
+
+bindsym $mod+ctrl+shift+s exec systemctl suspend
+bindsym $mod+ctrl+l exec ~/.scripts/Wlock.sh
 
 ### Input configuration
 input "1133:16519:Logitech_G903_LS" {
@@ -279,10 +274,12 @@ bar {
     status_command i3blocks
 
     colors {
-        statusline #ffffff
-        background #323232
+        #statusline #ffffff
+        #background #323232
+        statusline #ffffffe6
+        background #323232e6
         #inactive_workspace #32323200 #32323200 #5c5c5c
-        inactive_workspace #323232ff #323232ff #5c5c5c
+        inactive_workspace #323232f0 #323232f0 #5c5c5c0f
     }
 }
 
@@ -300,13 +297,17 @@ exec udiskie -a
 
 # autostart application
 workspace "2: "
-exec steam
+exec steam-native
 workspace "2: "
 exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
 workspace "2: "
 exec spotify --enable-features=UseOzonePlatform --ozone-platform=wayland
 workspace "2: "
 exec thunderbird
+workspace "2: "
+exec element-desktop
+workspace "2: "
+exec notion-app
 
 exec_always sleep 0.6s && swaymsg "workspace \"2: \"; layout tabbed"
 
