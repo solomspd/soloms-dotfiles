@@ -78,19 +78,18 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
 	git
 	ruby
-	autojump
 	zsh-syntax-highlighting
 	zsh-autosuggestions
-	zsh-completions
 	history-substring-search
 	fzf
 	vi-mode
 	vscode
 	python
 	tmux
+	zoxide
 )
 
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ONCE=false
 ZSH_TMUX_AUTOCONNECT=false
 #ZSH_TMUX_AUTOQUIT=false
@@ -159,9 +158,9 @@ alias math='ipython --profile=solom'
 alias m='octave'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
-alias ls='exa -l -a -H --color=always --icons'
-alias l='exa -l --color=always'
-alias s='devour'
+alias ls='lsd -l -a -h --color always --icon always -F'
+alias l='lsd -l --color always -F'
+alias s='swayhide'
 alias weather='curl wttr.in/Cairo'
 alias nnn='nnn -e -d'
 alias n='n -e -d -R'
@@ -173,7 +172,7 @@ alias dmesg='dmesg --color=always'
 
 export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:$HOME/.local/bin:$HOME/.npm-global/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
-export NNN_PLUG="o:fzopen;c:fzcd;j:jump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
+export NNN_PLUG="o:fzopen;c:fzcd;j:autojump;p:preview-tui;i:preview-tabbed;d:dragdrop;r:renamer"
 export NNN_BMS="a:/mnt/Abdo/Abdos University work;m:/mnt;t:/mnt/tank;r:/mnt/ramdisk;M:/mnt/tank/media;A:/mnt/Abdo/Abdos University work/Fall 2022;R:/mnt/Abdo/Abdos University work/Spring 2020/Research;h:/home/solom;/:/;r:/run/media/solom;s:/mnt/Abdo/Abdos University work/senior-project;d:~/Downloads"
 
 typeset -A key
@@ -282,7 +281,7 @@ extract() {
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/solom/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/solom/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -294,8 +293,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-eval "$(zoxide init zsh)"
 
 fortune
 
@@ -329,4 +326,7 @@ PERL_LOCAL_LIB_ROOT="/home/solom/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_R
 PERL_MB_OPT="--install_base \"/home/solom/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/solom/perl5"; export PERL_MM_OPT;
 
+
 source /home/solom/.config/broot/launcher/bash/br
+source /usr/share/nvm/init-nvm.sh
+eval "$(atuin init zsh)"

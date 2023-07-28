@@ -59,6 +59,9 @@ input "6940:6957:Corsair_Corsair_Gaming_K95_RGB_PLATINUM_Keyboard" {
     xkb_options "altwin:swap_lalt_lwin"
 	xkb_numlock enabled
 }
+input "1386:827:Wacom_Intuos_S_2_Pen" {
+	map_to_output "DP-2"
+}
 
 #
 # Example configuration:
@@ -81,7 +84,7 @@ input "6940:6957:Corsair_Corsair_Gaming_K95_RGB_PLATINUM_Keyboard" {
     bindsym $mod+Return exec $term
 
 	# Commonly used applications
-    # bindsym $mod+b exec google-chrome-stable "--enable-features=VaapiVideoDecoder,VaapiVideo" "--ignore-gpu-blocklist" "--enable-gpu-rasterization" "--enable-zero-copy" "--disable-gpu-driver-bug-workarounds"
+    #bindsym $mod+b exec google-chrome-stable "--enable-features=VaapiVideoDecoder,VaapiVideo" "--ignore-gpu-blocklist" "--enable-gpu-rasterization" "--enable-zero-copy" "--disable-gpu-driver-bug-workarounds"
     bindsym $mod+b exec firefox
 	bindsym $mod+p exec code --enable-features=UseOzonePlatform --ozone-platform=wayland
 
@@ -297,11 +300,11 @@ exec udiskie -a
 
 # autostart application
 workspace "2: "
-exec steam-native
+exec steam
 workspace "2: "
-exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+exec discord --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto
 workspace "2: "
-exec spotify --enable-features=UseOzonePlatform --ozone-platform=wayland
+exec spotify-launcher -- "--enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
 workspace "2: "
 exec thunderbird
 workspace "2: "

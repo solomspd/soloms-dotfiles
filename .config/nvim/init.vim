@@ -1,75 +1,84 @@
-call plug#begin('~/.vim/plugged')
+if exists('g:vscode')
+	" copy from nvim clipboard to WM/DE
+	set clipboard+=unnamedplus
 
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-" Plug 'ap/vim-css-color'
-" Plug 'flazz/vim-colorschemes'
-" Plug 'rafi/awesome-vim-colorschemes'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mbbill/undotree'
-" Plug 'justinmk/vim-sneak'
-" Plug 'unblevable/quick-scope'
-Plug 'dylanaraps/wal.vim'
-Plug 'lervag/vimtex'
-Plug 'airblade/vim-gitgutter'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-" Plug 'chrisbra/csv.vim'
-" Plug 'mcchrish/nnn.vim'
-" Plug 'yggdroot/indentline'
-Plug 'Chiel92/vim-autoformat'
-Plug 'ryanoasis/vim-devicons'
-Plug 'stevearc/vim-arduino'
-Plug 'rust-lang/rust.vim'
-Plug 'github/copilot.vim'
+	set mouse=a
 
-call plug#end()
+	" fancy hybrid number line
+	set number relativenumber
+else
+	call plug#begin('~/.vim/plugged')
 
-" fancy hybrid number line
-set number relativenumber
+	Plug 'vim-airline/vim-airline'
+	Plug 'tpope/vim-fugitive'
+	" Plug 'tpope/vim-surround'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'scrooloose/nerdtree'
+	Plug 'scrooloose/nerdcommenter'
+	" Plug 'ap/vim-css-color'
+	" Plug 'flazz/vim-colorschemes'
+	" Plug 'rafi/awesome-vim-colorschemes'
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'mbbill/undotree'
+	" Plug 'justinmk/vim-sneak'
+	" Plug 'unblevable/quick-scope'
+	Plug 'dylanaraps/wal.vim'
+	Plug 'lervag/vimtex'
+	Plug 'airblade/vim-gitgutter'
+	" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	" Plug 'junegunn/fzf.vim'
+	" Plug 'chrisbra/csv.vim'
+	" Plug 'mcchrish/nnn.vim'
+	" Plug 'yggdroot/indentline'
+	Plug 'Chiel92/vim-autoformat'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'stevearc/vim-arduino'
+	Plug 'rust-lang/rust.vim'
+	Plug 'github/copilot.vim'
 
-let g:airline_theme='luna'
-let g:airline_powerline_fonts = 1
+	call plug#end()
 
-colorscheme wal
+	let g:airline_theme='luna'
+	let g:airline_powerline_fonts = 1
 
-" tabs > spaces
-set autoindent
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
-set list lcs=tab:\|\ 
+	colorscheme wal
 
-" to copy from vim to X11 clipboard
-set clipboard+=unnamedplus
+	" tabs > spaces
+	set autoindent
+	set noexpandtab
+	set tabstop=4
+	set shiftwidth=4
+	set list lcs=tab:\|\ 
 
-" because vim doesnt like python tab indentation for some reason
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
+	" because vim doesnt like python tab indentation for some reason
+	let g:tex_flavor = 'latex'
+	let g:vimtex_view_method = 'zathura'
 
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'zathura'
+	let g:sneak#label = 1
 
-let g:sneak#label = 1
+	" enable built in debugger
+	packadd termdebug
 
-" enable built in debugger
-packadd termdebug
+	" Autoformatting
+	" au BufWrite * :Autoformat
+	let g:formatter_yapf_style = '{use_tabs: true, column_limit: 110}'
 
-" Autoformatting
-" au BufWrite * :Autoformat
-let g:formatter_yapf_style = '{use_tabs: true, column_limit: 110}'
+	" no conceal
+	let g:vimtex_syntax_conceal_default = 0
+	let g:vim_json_syntax_conceal = 0
 
-set mouse=a
+	" copy from nvim clipboard to WM/DE
+	set clipboard+=unnamedplus
 
-" no conceal
-let g:vimtex_syntax_conceal_default = 0
-let g:vim_json_syntax_conceal = 0
+	set mouse=a
 
-" auto open nerdtree
-autocmd VimEnter * NERDTree | wincmd p
-" close nerdtree with last window
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+	" fancy hybrid number line
+	set number relativenumber
+
+	" auto open nerdtree
+	autocmd VimEnter * NERDTree | wincmd p
+	" close nerdtree with last window
+	autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+	    \ quit | endif
+end
+
