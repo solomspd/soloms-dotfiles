@@ -329,4 +329,4 @@ PERL_MM_OPT="INSTALL_BASE=/home/solom/perl5"; export PERL_MM_OPT;
 
 source /home/solom/.config/broot/launcher/bash/br
 source /usr/share/nvm/init-nvm.sh
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
