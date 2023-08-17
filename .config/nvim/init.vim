@@ -1,11 +1,6 @@
 if exists('g:vscode')
 	" copy from nvim clipboard to WM/DE
 	set clipboard+=unnamedplus
-
-	set mouse=a
-
-	" fancy hybrid number line
-	set number relativenumber
 else
 	call plug#begin('~/.vim/plugged')
 

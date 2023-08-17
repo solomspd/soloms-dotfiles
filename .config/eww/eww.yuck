@@ -31,10 +31,10 @@
     (sidestuff)))
 
 (defpoll time :interval "10s"
-  "date '+%H:%M %b %d, %Y'")
+  "date '+%Y-%m-%d  %I:%M:%S %p'")
 
 (deflisten music :initial ""
-  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+  "playerctl --player=spotify --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
 (defwidget music []
   (box :class "music"
