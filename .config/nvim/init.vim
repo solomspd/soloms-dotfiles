@@ -40,10 +40,13 @@ else
 
 	" tabs > spaces
 	set autoindent
-	set noexpandtab
 	set tabstop=4
 	set shiftwidth=4
-	set list lcs=tab:\|\ 
+
+	nmap <silent> <c-k> :wincmd k<CR>
+	nmap <silent> <c-j> :wincmd j<CR>
+	nmap <silent> <c-h> :wincmd h<CR>
+	nmap <silent> <c-l> :wincmd l<CR>
 
 	" because vim doesnt like python tab indentation for some reason
 	let g:tex_flavor = 'latex'

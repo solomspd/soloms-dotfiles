@@ -30,8 +30,11 @@
     (music)
     (sidestuff)))
 
-(defpoll time :interval "10s"
+(defpoll time :interval "1s"
   "date '+%Y-%m-%d  %I:%M:%S %p'")
+
+(defpoll alt_time :interval "1s"
+  "TZ='America/Los_Angeles' date '+%I:%M:%S %p'")
 
 (deflisten music :initial ""
   "playerctl --player=spotify --follow metadata --format '{{ artist }} - {{ title }}' || true")
@@ -51,7 +54,8 @@
     (metric :label "DISK:"
             :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
             :onchange "")
-    time))
+    time
+	))
 
 (defwidget metric [label value onchange]
   (box :orientation "h"

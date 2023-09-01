@@ -327,6 +327,8 @@ PERL_LOCAL_LIB_ROOT="/home/solom/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_R
 PERL_MB_OPT="--install_base \"/home/solom/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/solom/perl5"; export PERL_MM_OPT;
 
+PATH="/home/solom/.config/emacs/bin:$PATH"
+
 
 source /home/solom/.config/broot/launcher/bash/br
 source /usr/share/nvm/init-nvm.sh
