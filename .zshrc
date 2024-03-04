@@ -159,6 +159,7 @@ alias m='octave'
 alias fdisk='sudo fdisk -l'
 alias iotop='sudo iotop'
 alias ls='lsd -l -a -h --color always --icon always -F'
+alias lst='ls -t | head'
 alias l='lsd -l --color always -F'
 alias s='swayhide'
 alias weather='curl wttr.in/Cairo'
@@ -170,6 +171,8 @@ alias cat='bat --paging=never'
 alias less='bat --paging=always'
 alias c='clear'
 alias dmesg='dmesg --color=always'
+alias coe='gh copilot explain'
+alias cos='gh copilot suggest'
 
 export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:$HOME/.local/bin:$HOME/.npm-global/bin"
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -331,5 +334,4 @@ PATH="/home/solom/.config/emacs/bin:$PATH"
 
 
 source /home/solom/.config/broot/launcher/bash/br
-source /usr/share/nvm/init-nvm.sh
 eval "$(atuin init zsh --disable-up-arrow)"
